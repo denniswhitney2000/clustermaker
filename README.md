@@ -23,6 +23,7 @@ DESCRIPTION
     - https://azure.microsoft.com/en-us/regions/
 
 PARAMETERS
+
     -help
         Display script options, defaults, where to get help to run the script and exit
 
