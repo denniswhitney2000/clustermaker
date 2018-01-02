@@ -5,14 +5,18 @@
     Generates the complete environment required to run a DataRobot cluster, 
     including the Resource Group, VNet, Application, Data, Modeling Nodes and
     Prediction Servers, following the Azure best practice guidance.
-    For CLI setup help, please visit: 
+    
+    For Azure CLI 2.0 help, please visit: 
     - https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest
+    
     To view recomended instance types, please refer to:
     - https://azure.microsoft.com/en-us/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
+    
     If guidance is required when selecting which region to host the DataRobot cluster,
-    please see the Azure region list: https://azure.microsoft.com/en-us/regions/
+    please see the Azure region list:
+    - https://azure.microsoft.com/en-us/regions/
 .PARAMETER help
-    Display script options, defaults and where to get help to run the script.
+    Display script options, defaults, where to get help to run the script and exit
 .PARAMETER debug
     Print debug output during script execution.
 .PARAMETER resourcename
@@ -47,7 +51,10 @@
     Sets the name prefix of the DataRobot dedicated prediction server
     Currently defaults to: PredictionNode    
 .EXAMPLE
-    C:\PS> ./Create-DataRobot.ps1 -location westus -image rhel -modelnodetype Standard_E32_v3 -modelnodecount 6 
+    C:\PS> ./Create-DataRobot-Azure-Cluster.ps1 -debug
+    This command creates the default DataRobot cluster, showing the debug information
+.EXAMPLE
+    C:\PS> ./Create-DataRobot-Azure-Cluster.ps1 -location westus -image rhel -modelnodetype Standard_E32_v3 -modelnodecount 6 
     This command would create the DataRobot cluster in the West US region, using 6 Standard_E32_v3 modeling nodes.
 .NOTES
     Author: Dennis Whitney <dennis.whitney@datarobot.com>
@@ -99,7 +106,7 @@ else { Write-Host "Created Resource Group: $rg" }
 # Create App node
 # TODO: Upgrade to handle ha
 #--size Standard_E8_v3
-$status = $( az vm create --resource-group $rg --name $appnodename --image $image --generate-ssh-keys --os-disk-size-gb 100 )
+$status = $( az vm create --resource-group $rg --name $appnodename --image $image --generate-ssh-keys --os-disk-size-gb 2047 )
 if ($debug -eq $true) { Write-Host "$appnodename VM creation status=>$status" }
 else { Write-Host "Created App Node VM: $appnodename" }
 
