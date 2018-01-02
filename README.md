@@ -1,13 +1,19 @@
 # Create-DataRobot-Azure-Cluster.ps1
 
 SYNOPSIS
+
     Creates the DataRobot cluster in the Azure environment.
 
 SYNTAX
-    Create-DataRobot-Azure-Cluster.ps1 -help -debug -resourcename &lt;String&gt; -location &lt;String&gt; -image &lt;String&gt; -appnodename &lt;String&gt; -modelnodename &lt;String&gt; -modelnodetype &lt;String&gt; -modelnodecount &lt;Int32&gt; -predictionnodename &lt;String&gt; -predictionnodecount &lt;Int32&gt;
+
+    Create-DataRobot-Azure-Cluster.ps1 -help -debug -resourcename &lt;String&gt; -location &lt;String&gt;
+    -image &lt;String&gt; -appnodename &lt;String&gt; -modelnodename &lt;String&gt; -modelnodetype &lt;String&gt;
+    -modelnodecount &lt;Int32&gt; -predictionnodename &lt;String&gt; -predictionnodecount &lt;Int32&gt;
 
 DESCRIPTION
-    Generates the complete environment required to run a DataRobot cluster, including the Resource Group, VNet, Application, Data, Modeling Nodes and Prediction Servers, following the Azure best practice guidance.
+
+    Generates the complete environment required to run a DataRobot cluster, including the Resource Group,
+    VNet, Application, Data, Modeling Nodes and Prediction Servers, following the Azure best practice guidance.
 
     For Azure CLI 2.0 help, please visit:
     - https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest
