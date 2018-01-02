@@ -6,9 +6,9 @@ SYNOPSIS
 
 SYNTAX
 
-    Create-DataRobot-Azure-Cluster.ps1 -help -debug -resourcename &lt;String&gt; -location &lt;String&gt;
-    -image &lt;String&gt; -appnodename &lt;String&gt; -modelnodename &lt;String&gt; -modelnodetype &lt;String&gt;
-    -modelnodecount &lt;Int32&gt; -predictionnodename &lt;String&gt; -predictionnodecount &lt;Int32&gt;
+    Create-DataRobot-Azure-Cluster.ps1 -help -debug -resourcename <String> -location <String>
+    -image <String> -appnodename <String> -modelnodename <String> -modelnodetype <String>
+    -modelnodecount <Int32> -predictionnodename <String> -predictionnodecount <Int32>
 
 DESCRIPTION
 
