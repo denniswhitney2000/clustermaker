@@ -1,8 +1,5 @@
 # Create-DataRobot-Azure-Cluster.ps1
 
-NAME
-    Create-DataRobot-Azure-Cluster.ps1
-
 SYNOPSIS
     Creates the DataRobot cluster in the Azure environment.
 
