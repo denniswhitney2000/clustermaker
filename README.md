@@ -75,13 +75,14 @@ PARAMETERS
 
     -------------------------- EXAMPLE 1 --------------------------
 
-    C:\PS&gt;./Create-DataRobot-Azure-Cluster.ps1 -debug
+    C:\PS>./Create-DataRobot-Azure-Cluster.ps1 -debug
 
     This command creates the default DataRobot cluster, showing the debug information
 
     -------------------------- EXAMPLE 2 --------------------------
 
-    C:\PS&gt;./Create-DataRobot-Azure-Cluster.ps1 -location westus -image rhel -modelnodetype Standard_E32_v3 -modelnodecount 6
+    C:\PS>./Create-DataRobot-Azure-Cluster.ps1 -location westus -image rhel -modelnodetype Standard_E32_v3 \
+    -modelnodecount 6
 
     This command would create the DataRobot cluster in the West US region, using 6 Standard_E32_v3 modeling nodes.
 
