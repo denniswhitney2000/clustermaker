@@ -70,8 +70,8 @@ param(
     [String] $modelnodename = "ModelingNode", # name of the Modeling Node
     [ValidateSet("Standard_E8_v3","Standard_E16_v3","Standard_E32_v3")][String] $modelnodetype = "Standard_E8_v3", # default modeling node type. good for 2 workers.
     [ValidateRange(1,50)] [Int] $modelnodecount = 4,       # number of Modeling Nodes to create
-    [String] $predictionnodename = "PredictionNode",      # name of the Modeling Node
-    [ValidateRange(1,50)][Int] $predictionnodecount = 1       # name of the Modeling Node
+    [String] $predictionnodename = "PredictionNode",      # name of the Prediction Node
+    [ValidateRange(1,50)][Int] $predictionnodecount = 1       # number of the Prediction Nodes
 )
 
 $rg = $resourcename + "ResourceGroup"
