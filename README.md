@@ -1,16 +1,19 @@
 # Create-DataRobot-Azure-Cluster.ps1
 
-NAME
-    Create-DataRobot-Azure-Cluster.ps1
-
 SYNOPSIS
+
     Creates the DataRobot cluster in the Azure environment.
 
 SYNTAX
-    Create-DataRobot-Azure-Cluster.ps1 -help -debug -resourcename &lt;String&gt; -location &lt;String&gt; -image &lt;String&gt; -appnodename &lt;String&gt; -modelnodename &lt;String&gt; -modelnodetype &lt;String&gt; -modelnodecount &lt;Int32&gt; -predictionnodename &lt;String&gt; -predictionnodecount &lt;Int32&gt;
+
+    Create-DataRobot-Azure-Cluster.ps1 -help -debug -resourcename <String> -location <String>
+    -image <String> -appnodename <String> -modelnodename <String> -modelnodetype <String>
+    -modelnodecount <Int32> -predictionnodename <String> -predictionnodecount <Int32>
 
 DESCRIPTION
-    Generates the complete environment required to run a DataRobot cluster, including the Resource Group, VNet, Application, Data, Modeling Nodes and Prediction Servers, following the Azure best practice guidance.
+
+    Generates the complete environment required to run a DataRobot cluster, including the Resource Group,
+    VNet, Application, Data, Modeling Nodes and Prediction Servers, following the Azure best practice guidance.
 
     For Azure CLI 2.0 help, please visit:
     - https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest
@@ -36,7 +39,8 @@ PARAMETERS
 
     -location <String>
         Location where this cluster will be served from.
-        Please refer to https://azure.microsoft.com/en-us/regions/ for the complete list and to confirm the service is available.
+        Please refer to https://azure.microsoft.com/en-us/regions/ for the complete list
+        and to confirm the service is available.
         Currently defaults to: eastus
 
     -image <String>
@@ -71,13 +75,14 @@ PARAMETERS
 
     -------------------------- EXAMPLE 1 --------------------------
 
-    C:\PS&gt;./Create-DataRobot-Azure-Cluster.ps1 -debug
+    C:\PS>./Create-DataRobot-Azure-Cluster.ps1 -debug
 
     This command creates the default DataRobot cluster, showing the debug information
 
     -------------------------- EXAMPLE 2 --------------------------
 
-    C:\PS&gt;./Create-DataRobot-Azure-Cluster.ps1 -location westus -image rhel -modelnodetype Standard_E32_v3 -modelnodecount 6
+    C:\PS>./Create-DataRobot-Azure-Cluster.ps1 -location westus -image rhel -modelnodetype Standard_E32_v3 \
+    -modelnodecount 6
 
     This command would create the DataRobot cluster in the West US region, using 6 Standard_E32_v3 modeling nodes.
 
