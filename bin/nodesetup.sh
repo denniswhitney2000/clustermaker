@@ -1,6 +1,4 @@
 #!/bin/sh
-
-# this part is a tad insecure, reconsider how we do this
 # Stop and disable the firewalld
 sudo systemctl stop firewalld
 sudo systemctl disable firewalld
