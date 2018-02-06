@@ -1,34 +1,34 @@
 #!/bin/sh
 
-# this part is a tad insecure.
-# reconsider how we do this
+# this part is a tad insecure, reconsider how we do this
 # Stop and disable the firewalld
-systemctl stop firewalld && systemctl disable firewalld
+sudo systemctl stop firewalld
+sudo systemctl disable firewalld
 
 # Stop and disable the iptables
-systemctl stop iptables && systemctl disable iptables
+#systemctl stop iptables && systemctl disable iptables
 
 # Disable the SELinux
-setenforce 0
-sed -i 's/enforcing/permissive/' /etc/sysconfig/selinux
+sudo setenforce 0
+sudo sed -i 's/enforcing/permissive/' /etc/sysconfig/selinux
 #######
 
 # Create the users and groups
-useradd --create-home -u 1234 datarobot
-groupadd docker
-usermod -aG docker datarobot
+sudo useradd --create-home -u 1234 datarobot
+sudo groupadd docker
+sudo usermod -aG docker datarobot
 
 # Create the DataRobot directory's
-mkdir -p /opt/datarobot/DataRobot-4.0.2
-mkdir -p /opt/datarobot/DOCKER
+sudo mkdir -p /opt/datarobot/DataRobot-4.0.3
+sudo mkdir -p /opt/datarobot/DOCKER
 
 # Create the docker symlink
-ln -s /opt/datarobot/DOCKER /var/lib/docker
+sudo ln -s /opt/datarobot/DOCKER /var/lib/docker
 
 # Take care of the datarobot permissions
-chown -R datarobot:datarobot /opt/datarobot
+sudo chown -R datarobot:datarobot /opt/datarobot
 
 # Enable sudo for the datarobot user
-echo 'datarobot ALL=(ALL) NOPASSWD: ALL' >> ./datarobot
-mv datarobot /etc/sudoers.d/
-chown root:wheel /etc/sudoers.d/datarobot
+sudo echo 'datarobot ALL=(ALL) NOPASSWD: ALL' >> ./datarobot
+sudo mv datarobot /etc/sudoers.d/
+sudo chown root:wheel /etc/sudoers.d/datarobot
