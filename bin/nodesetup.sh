@@ -17,7 +17,7 @@ sudo groupadd docker
 sudo usermod -aG docker datarobot
 
 # Create the DataRobot directory's
-sudo mkdir -p /opt/datarobot/DataRobot-4.0.3
+sudo mkdir -p /opt/datarobot/DataRobot-INSTALL
 sudo mkdir -p /opt/datarobot/DOCKER
 
 # Create the docker symlink
