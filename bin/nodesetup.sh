@@ -1,10 +1,11 @@
 #!/bin/sh
 # Stop and disable the firewalld
-sudo systemctl stop firewalld
-sudo systemctl disable firewalld
+#sudo systemctl stop firewalld
+#sudo systemctl disable firewalld
 
 # Stop and disable the iptables
-#systemctl stop iptables && systemctl disable iptables
+#sudo systemctl stop iptables
+#sudo systemctl disable iptables
 
 # Disable the SELinux
 sudo setenforce 0
@@ -17,7 +18,7 @@ sudo groupadd docker
 sudo usermod -aG docker datarobot
 
 # Create the DataRobot directory's
-sudo mkdir -p /opt/datarobot/DataRobot-4.0.3
+sudo mkdir -p /opt/datarobot/DataRobot-INSTALL
 sudo mkdir -p /opt/datarobot/DOCKER
 
 # Create the docker symlink
