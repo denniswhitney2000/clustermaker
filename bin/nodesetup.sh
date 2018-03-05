@@ -11,6 +11,9 @@
 sudo setenforce 0
 sudo sed -i 's/enforcing/permissive/' /etc/sysconfig/selinux
 
+# Enable Public Key Authentication
+sudo sed -i 's/#PubkeyAuthentication yes/PubkeyAuthentication yes/' /etc/ssh/sshd_config
+
 # Create the user
 sudo useradd --create-home -u 1234 datarobot
 
