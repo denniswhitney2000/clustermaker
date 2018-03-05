@@ -13,16 +13,18 @@ sudo sed -i 's/enforcing/permissive/' /etc/sysconfig/selinux
 
 # Enable Public Key Authentication
 sudo sed -i 's/#PubkeyAuthentication yes/PubkeyAuthentication yes/' /etc/ssh/sshd_config
+sudo sed -i 's/#RSAAuthentication yes/RSAAuthentication yes/' /etc/ssh/sshd_config
+sudo systemctl restart sshd
 
 # Create the user
 sudo useradd --create-home -u 1234 datarobot
 
-# Configure for ssh
+# Configure ssh for rsa key authentication
 sudo mkdir -p /home/datarobot/.ssh && sudo chmod 700 /home/datarobot/.ssh
 sudo ssh-keygen -t rsa -b 2048 -f /home/datarobot/.ssh/id_rsa -N ""
 sudo cp /home/datarobot/.ssh/id_rsa.pub /home/datarobot/.ssh/authorized_keys
 
-# set the permissions
+# set the permissions on the generated files
 sudo chown -R datarobot:datarobot /home/datarobot/.ssh
 sudo chmod 644 /home/datarobot/.ssh/id_rsa.pub
 sudo chmod 600 /home/datarobot/.ssh/id_rsa
