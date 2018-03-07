@@ -62,3 +62,6 @@ sudo ln -s /opt/datarobot/DOCKER /var/lib/docker
 
 # Take care of the datarobot permissions
 sudo chown -R datarobot:datarobot /opt/datarobot
+
+# Do the yum update
+sudo yum update
