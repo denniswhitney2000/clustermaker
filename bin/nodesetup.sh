@@ -43,9 +43,9 @@ sudo usermod -aG docker datarobot
 
 # prep the data drive to host the DataRobot software and mount it
 #echo -e "o\nn\np\n1\n\n\nw" | sudo fdisk /dev/sdc
-#sudo mkfs.ext4 /dev/sdb1
+#sudo mkfs.ext4 /dev/sdc1
 #sudo mkdir -p /opt/datarobot
-#sudo mount -t ext4 /dev/sdb1 /opt/datarobot
+#sudo mount -t ext4 /dev/sdc1 /opt/datarobot
 
 # Add entry to the fstab
 #sudo chmod 666 /etc/fstab
