@@ -42,15 +42,16 @@ sudo groupadd docker
 sudo usermod -aG docker datarobot
 
 # prep the data drive to host the DataRobot software and mount it
-#echo -e "o\nn\np\n1\n\n\nw" | sudo fdisk /dev/sdc
-#sudo mkfs.ext4 /dev/sdc1
-#sudo mkdir -p /opt/datarobot
-#sudo mount -t ext4 /dev/sdc1 /opt/datarobot
+export drivepath=`lsblk | grep -E '(2T|128G|64G)' | cut -f 1 -d ' '`
+echo -e "o\nn\np\n1\n\n\nw" | sudo fdisk /dev/$drivepath
+sudo mkfs.ext4 /dev/${drivepath}1
+sudo mkdir -p /opt/datarobot
+sudo mount -t ext4 /dev/${drivepath}1 /opt/datarobot
 
 # Add entry to the fstab
-#sudo chmod 666 /etc/fstab
-#sudo echo "`sudo blkid | head -1 | cut -d ' ' -f 2 | sed 's/"//g'` /opt/datarobot ext4 defaults 0 0" >> /etc/fstab
-#sudo chmod 644 /etc/fstab
+sudo chmod 666 /etc/fstab
+sudo echo "`sudo blkid | head -1 | cut -d ' ' -f 2 | sed 's/"//g'` /opt/datarobot ext4 defaults 0 0" >> /etc/fstab
+sudo chmod 644 /etc/fstab
 
 ### Install directory set up ###
 # Create other DataRobot directories
