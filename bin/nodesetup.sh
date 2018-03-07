@@ -61,4 +61,4 @@ sudo mkdir -p /opt/datarobot/DOCKER
 sudo ln -s /opt/datarobot/DOCKER /var/lib/docker
 
 # Take care of the datarobot permissions
-sudo chown -R datarobot:datarobot /opt/dataro
+sudo chown -R datarobot:datarobot /opt/datarobot
