@@ -1,11 +1,6 @@
 #!/bin/sh
 # Stop and disable the firewalld
-#sudo systemctl stop firewalld
-#sudo systemctl disable firewalld
-
-# Stop and disable the iptables
-#sudo systemctl stop iptables
-#sudo systemctl disable iptables
+#sudo systemctl stop firewalld && sudo systemctl disable firewalld
 
 # Disable SELinux
 sudo setenforce 0
@@ -33,7 +28,7 @@ sudo chmod 600 /home/datarobot/.ssh/authorized_keys
 # Enable sudo for the datarobot user
 sudo echo 'datarobot ALL=(ALL) NOPASSWD: ALL' >> ./datarobot
 sudo mv datarobot /etc/sudoers.d/
-sudo chown root:wheel /etc/sudoers.d/datarobot
+sudo chown root:root /etc/sudoers.d/datarobot
 
 # Add the docker group
 sudo groupadd docker
