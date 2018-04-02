@@ -56,7 +56,6 @@ sudo firewall-cmd --zone=public --permanent --add-port=8033/tcp
 
 echo "Allow DataRobot Prediction Optimization Application"
 sudo firewall-cmd --zone=public --permanent --add-port=8097/tcp
-sudo firewall-cmd --zone=public --permanent --add-port=9000/tcp
 
 echo "Allow DataRobot Datasets Service API"
 sudo firewall-cmd --zone=public --permanent --add-port=8100/tcp
