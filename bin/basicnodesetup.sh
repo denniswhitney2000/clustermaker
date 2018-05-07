@@ -5,7 +5,7 @@
 
 # Disable SELinux
 sudo setenforce 0
-sudo sed -i 's/enforcing/permissive/' /etc/sysconfig/selinux
+sed -i --follow-symlinks 's/SELINUX=enforcing/SELINUX=permissive/' /etc/sysconfig/selinux
 
 # Enable Public Key Authentication
 sudo sed -i 's/#PubkeyAuthentication yes/PubkeyAuthentication yes/' /etc/ssh/sshd_config
