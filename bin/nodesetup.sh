@@ -45,7 +45,7 @@ sudo mount -t ext4 /dev/${drivepath}1 /opt/datarobot
 
 # Add entry to the fstab
 sudo chmod 666 /etc/fstab
-sudo echo "`sudo blkid | head -1 | cut -d ' ' -f 2 | sed 's/"//g'` /opt/datarobot ext4 defaults 0 0" >> /etc/fstab
+sudo echo "`sudo blkid | grep ${drivepath}1 | cut -d ' ' -f 2 | sed 's/"//g'` /opt/datarobot ext4 defaults 0 0" >> /etc/fstab
 sudo chmod 644 /etc/fstab
 
 ### Install directory set up ###
