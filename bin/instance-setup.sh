@@ -1,6 +1,12 @@
 #!/bin/sh
-# Set your version
-version=<UPDATE YOUR VERSION NUMBER>
+# Set the DataRobot  version
+version=<DR.Version>
+
+# Uncomment the appropreate drive type
+disk=nvme1n1   # Use with AWS R5 instance types
+#disk=sdb       # Use with AWS R4 instnace types
+#disk=sdc       # Use for Azure
+#disk=<custom>  # Use for VM ware and other custom environments
 
 # Disable SELinux
 setenforce 0
@@ -38,15 +44,17 @@ usermod -aG docker datarobot
 
 # For the complete details of the section below, please refer to:
 # https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html
+# https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nvme-ebs-volumes.html
+
 # Mount the new drive to the node
-mkfs -t ext4 /dev/nvme1n1
+mkfs -t ext4 /dev/${disk}
 mkdir -p /opt/datarobot
-mount -t ext4 /dev/nvme1n1 /opt/datarobot
+mount -t ext4 /dev/${disk} /opt/datarobot
 
 # Add entry to the fstab
-echo "`sudo file -s /dev/nvme1n1 | cut -f 8 -d ' '` /opt/datarobot ext4 defaults,nofail 0 0" | sudo tee -a /etc/fstab
+echo "`sudo file -s /dev/${disk} | cut -f 8 -d ' '` /opt/datarobot ext4 defaults,nofail 0 0" | sudo tee -a /etc/fstab
 
-# Install directory set up #
+### Install directory set up ###
 # Create other DataRobot directories
 mkdir -p /opt/datarobot/DataRobot-${version}
 mkdir -p /opt/datarobot/DOCKER
