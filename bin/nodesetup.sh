@@ -1,4 +1,6 @@
 #!/bin/sh
+version=$1
+
 # Stop and disable the firewalld
 #sudo systemctl stop firewalld && sudo systemctl disable firewalld
 
@@ -46,7 +48,7 @@ echo "`sudo file -s /dev/sdc | cut -f 8 -d ' '` /opt/datarobot ext4 defaults,nof
 
 ### Install directory set up ###
 # Create other DataRobot directories
-sudo mkdir -p /opt/datarobot/DataRobot-INSTALL
+sudo mkdir -p /opt/datarobot/DataRobot-${version}
 sudo mkdir -p /opt/datarobot/DOCKER
 
 # Create the docker symlink
