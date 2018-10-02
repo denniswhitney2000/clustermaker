@@ -53,6 +53,7 @@ mkdir -p /opt/datarobot/DOCKER
 
 # Create the docker symlink
 ln -s /opt/datarobot/DOCKER /var/lib/docker
+chown -h datarobot:datarobot /var/lib/docker
 
 # Take care of the datarobot permissions
 chown -R datarobot:datarobot /opt/datarobot
